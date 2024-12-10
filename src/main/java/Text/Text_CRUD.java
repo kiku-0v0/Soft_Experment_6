@@ -5,11 +5,10 @@ import DAO.Model.User;
 import DAO.MySQLDAL.DAL;
 import Service.TreeService;
 import com.sun.source.tree.Tree;
-
 import java.sql.SQLException;
 import java.util.List;
 /*
-测试Service的功能
+测试Service的CRUD，即对程序运行中的树形结构进行增删查改
  */
 public class Text_CRUD {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -27,15 +26,15 @@ public class Text_CRUD {
         System.out.println(treeService.getOrganizationByID("01040304"));
 
         User newUser = new User("261","|01||01020205|","2131224-sadjnnv-3213","202225220699","e10adc3949ba59abbe56e057f20f883e","22统计R1");
-        treeService.addUser(newUser);
-        System.out.println(treeService.getUserByID("261"));
+//        treeService.addUser(newUser);
+//        System.out.println(treeService.getUserByID("261"));
 
-        newUser.setfRemark("22软工6班");
-        treeService.updateUser(newUser);
-        System.out.println(treeService.getUserByID("261"));
-
-        treeService.deleteUser(newUser);
-        System.out.println(treeService.getUserByID("261"));
+//        newUser.setfRemark("22软工6班");
+//        treeService.updateUser(newUser);
+//        System.out.println(treeService.getUserByID("261"));
+//
+//        treeService.deleteUser(newUser);
+//        System.out.println(treeService.getUserByID("261"));
 
 
     }

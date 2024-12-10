@@ -38,9 +38,7 @@ public class TreeService {
 
     public void addOrganization(Organization newOrganization){
         Organization parentOrg = getOrganizationByID(newOrganization.getfHigherUpfIDs());
-        System.out.println("Checking for duplicate fID: " + newOrganization.getfID());  // 调试日志
         for(Organization org : organizationList){
-            System.out.println("Existing fID: " + org.getfID());  // 调试日志
             if(org.getfID().equals(newOrganization.getfID())){
                 System.out.println("该机构已经存在");
                 return;
@@ -120,7 +118,16 @@ public class TreeService {
     }//根据用户ID查找用户
 
     public void addUser(User newUser) throws SQLException {
-        if (UserList.contains(newUser)) {
+        boolean found = false;
+
+        for(User user : UserList){
+            if(user.getfID().equals(newUser.getfID())){
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
             System.out.println("该用户已存在");
             return ;
         }//用户存在时跳过
