@@ -7,7 +7,9 @@ import DAO.MySQLDAL.OrganizationDAL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+测试DAL的功能
+ */
 public class Text_DAL {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         //Organization organization = new Organization("2","1","1","1","1","1");

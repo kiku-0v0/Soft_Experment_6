@@ -63,7 +63,7 @@ public class DAL {
         return organizations;
     }
 
-    //访问数据库得到所有的用户列表，并将用户所属的机构ID划分成字符串返回
+    //访问数据库得到所有的用户列表
     public static List<User> getAllUser() throws SQLException {
         List<User> users = new ArrayList<>();
 

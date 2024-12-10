@@ -25,7 +25,7 @@ public class UserDAL {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // 设置参数
-            ps.setInt(1, Integer.parseInt(user.getfID()));// 第一个参数，fID
+            ps.setString(1,user.getfID());// 第一个参数，fID
             ps.setString(2, user.getfOrgIDs());//第二个参数
             ps.setString(3, user.getfUserGUID()); // 第三个参数
             ps.setString(4, user.getfName());// 第四个参数
@@ -71,7 +71,7 @@ public class UserDAL {
         }
     }
 
-    //删除数据库一条数据
+
     public  void Delete(User user) {
         String url = "jdbc:mysql://localhost:3306/experiment_2";  // 数据库URL
         String username = "root";  // 数据库用户名
@@ -93,8 +93,8 @@ public class UserDAL {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    //根据查询条件返回机构列表
+    } //删除数据库一条数据
+
     public List<User> QueryModelList(String strWhere){
         List<User> resultList = new ArrayList<>();
         String url = "jdbc:mysql://localhost:3306/experiment_2";  // 数据库URL
@@ -123,7 +123,7 @@ public class UserDAL {
         }
 
         return resultList;
-    }
+    }//根据查询条件返回机构列表
 
 
 }

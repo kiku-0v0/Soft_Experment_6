@@ -28,7 +28,7 @@ public class OrganizationDAL {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // 设置参数
-            ps.setInt(1, Integer.parseInt(org.getfID()));// 第一个参数，fID
+            ps.setString(1, org.getfID());// 第一个参数，fID
             ps.setString(2, org.getfName());          // 第二个参数，fName
             ps.setString(3, org.getfHigherUpfIDs()); // 第三个参数，fHigherUpfIDs
             ps.setString(4, org.getfPermission());   // 第四个参数，fPermission

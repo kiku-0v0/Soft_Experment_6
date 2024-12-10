@@ -1,7 +1,9 @@
 package DAO.Model;
 
 import java.lang.invoke.CallSite;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /*
 表记录的具体实现类,机构类，对应表t_organization中的一条记录
@@ -14,9 +16,9 @@ public class Organization{
     private String fRemark;
     private String fOrgGUID;
 
-    private List<Organization> ChildOrganization;//存放机构的下属机构,用来实现树形结构
+    private List<Organization> ChildOrganization = new ArrayList<>();//存放机构的下属机构,用来实现树形结构
 
-    private List<User> ChildUser;//存放该机构的下属成员
+    private List<User> ChildUser = new ArrayList<>();//存放该机构的下属成员
 
     public Organization(String fID, String fName, String fPermission, String fHigherUpfIDs, String fRemark, String fOrgGUID) {
         this.fID = fID;
@@ -101,4 +103,44 @@ public class Organization{
     public void addOrg(Organization org) {
         ChildOrganization.add(org);
     }
+
+    public void deleteOrg(Organization org){
+        ChildOrganization.remove(org);
+    }
+
+    public boolean hasChildOrganization(Organization organization) {
+        // 检查当前组织是否包含该子组织
+        return ChildOrganization.contains(organization);  // 假设 childOrganizations 是存储子组织的列表
+    }
+
+    public void updateOrg(Organization org){
+        setfID(org.getfID());
+        setfName(org.getfName());
+        setfRemark(org.getfRemark());
+        setfPermission(org.getfPermission());
+        setfOrgGUID(org.getfOrgGUID());
+        setfHigherUpfIDs(org.getfHigherUpfIDs());
+    }
+
+    public void addUser(User user) {
+        ChildUser.add(user);
+    }
+
+    public void deleteUser(User user){
+        ChildUser.remove(user);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Organization that = (Organization) obj;
+        return Objects.equals(fID, that.fID);  // 确保 fID 完全匹配
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fID);  // 确保 hashCode 根据 fID 计算
+    }
+
 }

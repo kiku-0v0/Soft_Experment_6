@@ -92,4 +92,13 @@ public class User {
                 ", fRemark='" + fRemark + '\'' +
                 '}';
     }
+
+    public void updateUser(User user){
+        setfID(user.getfID());
+        setfName(user.getfName());
+        setfRemark(user.getfRemark());
+        setfPassword(user.getfPassword());
+        setfUserGUID(user.getfUserGUID());
+        setfOrgIDs(user.getfOrgIDs());
+    }
 }
